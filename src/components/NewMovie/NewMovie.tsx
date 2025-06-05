@@ -15,17 +15,11 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const [imdbUrl, setImdbUrl] = useState('');
   const [imdbId, setImdbId] = useState('');
 
-  const trimTitle = title.trim();
-  const trimDescription = description.trim();
-  const trimImgUrl = imgUrl.trim();
-  const trimImdbUrl = imdbUrl.trim();
-  const trimImdbId = imdbId.trim();
-
   const isValid =
-    trimTitle !== '' &&
-    trimImgUrl.trim() !== '' &&
-    trimImdbUrl.trim() !== '' &&
-    trimImdbId.trim() !== '';
+    title.trim() !== '' &&
+    imgUrl.trim() !== '' &&
+    imdbUrl.trim() !== '' &&
+    imdbId.trim() !== '';
 
   const reset = () => {
     setTitle('');
@@ -40,11 +34,11 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
     event.preventDefault();
 
     const newMovieCard: Movie = {
-      title: trimTitle,
-      description: trimDescription,
-      imgUrl: trimImgUrl,
-      imdbUrl: trimImdbUrl,
-      imdbId: trimImdbId,
+      title: title.trim(),
+      description: description.trim(),
+      imgUrl: imgUrl.trim(),
+      imdbUrl: imdbUrl.trim(),
+      imdbId: imdbId.trim(),
     };
 
     onAdd(newMovieCard);
